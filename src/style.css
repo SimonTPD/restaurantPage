@@ -1,0 +1,18 @@
+button#test-button{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(241, 241, 241);
+    color: red;
+}
+
+button#test-button:hover{
+    box-shadow: 1px 1px 1px 1px rgb(112, 112, 112);
+}
+
+button#test-button:active{
+    box-shadow: inset 0px 0px 1px 1px rgb(112, 112, 112);
+}
