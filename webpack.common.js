@@ -4,11 +4,6 @@ const { watchFile } = require('fs');
 
  module.exports = {
     entry: './src/index.js',
-    devtool: 'inline-source-map',
-    devServer: {
-        static: './dist',
-        watchFiles: ['src/*'],
-    },
     plugins: [
         new HtmlWebpackPlugin({
         template: './src/index.html',

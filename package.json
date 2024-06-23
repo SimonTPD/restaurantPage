@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "start": "webpack serve --open --no-client-overlay-warnings",
-    "build": "webpack"
+    "watch": "webpack --watch --config webpack.dev.js",
+    "start": "webpack serve --open --no-client-overlay-warnings --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
