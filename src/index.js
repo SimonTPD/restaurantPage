@@ -1,7 +1,17 @@
+const BUTTON_ACTIVE_CLASS_NAME = "currently-active";
+
+/******************************************************/
+/*Content*/
+/******************************************************/
 import './style.css';
 import loadHomePage from './home.js';
 import loadMenuPage from './menu.js';
 import loadAboutPage from './about.js';
+
+/******************************************************/
+/*Global portion*/
+/******************************************************/
+loadHomePage();
 
 /******************************************************/
 /*Nav buttons queries and event listeners*/
@@ -9,22 +19,30 @@ import loadAboutPage from './about.js';
 const [buttonHome, buttonMenu, buttonAbout] =
 document.querySelectorAll("nav>button");
 
+buttonHome.classList.add(BUTTON_ACTIVE_CLASS_NAME);
+
 buttonHome.addEventListener("click", 
-    () => {
+    (evt) => {
+        clearButtonIcons();
+        evt.target.classList.add(BUTTON_ACTIVE_CLASS_NAME);
         clearPage();
         loadHomePage();
     }
 );
 
 buttonMenu.addEventListener("click", 
-    () => {
+    (evt) => {
+        clearButtonIcons();
+        evt.target.classList.add(BUTTON_ACTIVE_CLASS_NAME);
         clearPage();
         loadMenuPage();
     }
 );
 
 buttonAbout.addEventListener("click", 
-    () => {
+    (evt) => {        
+        clearButtonIcons();
+        evt.target.classList.add(BUTTON_ACTIVE_CLASS_NAME);
         clearPage();
         loadAboutPage();
     }
@@ -37,8 +55,16 @@ function clearPage(){
     const divPageContent = document.querySelector("div#page-content");
     const divPageContentChildren = document.querySelectorAll("div#page-content > *");
     for (let child of divPageContentChildren){
-        divPageContent.removeChild(child);
+        if (!child.classList.contains("background-cred")){
+            divPageContent.removeChild(child);
+        }
     }
+}
+
+function clearButtonIcons(){
+    buttonHome.classList.remove(BUTTON_ACTIVE_CLASS_NAME);
+    buttonMenu.classList.remove(BUTTON_ACTIVE_CLASS_NAME);
+    buttonAbout.classList.remove(BUTTON_ACTIVE_CLASS_NAME);        
 }
 
 /******************************************************/
